@@ -1,0 +1,85 @@
+.container__Acttable {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  width: 70rem;
+  color: var(--color-light--2);
+  box-shadow: 0 2.4rem 4.8rem rgba(245, 244, 244, 0.015);
+  border-radius: 1.5rem;
+  background: var(--color-dark--2);
+  position: relative;
+}
+
+.table {
+  margin: 2rem auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1.4rem;
+  border: 1px solid var(--color-dark--0);
+  border-radius: 1.5rem; /* aplica el borde redondeado */
+  overflow: hidden;
+}
+
+.table th tr {
+  width: 25%;
+}
+
+.table thead th {
+  background: var(--color-brand--1);
+  color: #fff;
+}
+.table tbody tr:nth-child(odd) {
+  background: var(--color-light--1);
+}
+.table tbody tr:nth-child(even) {
+  background: var(--color-brand--2);
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 1.6rem;
+  text-align: left;
+}
+
+.container__title {
+  font-size: 2.42rem;
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon_mobile {
+  color: var(--color-main);
+}
+
+.pag {
+  display: flex;
+  justify-content: center;
+}
+
+.container__btn__close {
+  position: absolute;
+  right: 0;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  color: var(--color-light--3);
+  background: transparent;
+  border-color: var(--color-brand--1);
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 rgba(237, 235, 235, 0.223);
+  transition: all 0.3s;
+}

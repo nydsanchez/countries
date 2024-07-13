@@ -1,0 +1,86 @@
+.gridContainer {
+  display: grid;
+  grid-template-areas: "aside main";
+  grid-template-columns: 50rem 1fr;
+  position: relative;
+  justify-content: center;
+}
+
+.sidebar {
+  flex-basis: 56rem;
+  padding: 3rem;
+  background-color: var(--color-dark--1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.bottomContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30rem;
+  height: 4rem;
+  background-color: var(--color-dark--0);
+  color: var(--color-light--3);
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.bottomContainer h2 {
+  text-align: center;
+  line-height: 4.5rem;
+}
+
+.bottomContainer .ico {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: var(--color-light--3);
+}
+.flag {
+  width: 45rem;
+  margin: auto 0;
+}
+.flag > img {
+  width: 100%;
+}
+.flag > h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+.actCountries {
+  background-image: url("/bg-page.png");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-dark--1);
+  position: relative;
+}
+
+.actCountries h2 {
+  color: var(--color-dark--1);
+  font-size: 6.4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.actCountries p {
+  padding: 5rem;
+  font-size: 2.4rem;
+}
+
+.btnMenu {
+  border: none;
+  background: transparent;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+}
+
+.btnMenu > img {
+  width: 4rem;
+}

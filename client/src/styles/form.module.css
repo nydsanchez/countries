@@ -1,0 +1,123 @@
+.form {
+  display: flex;
+  flex-flow: column;
+  background: var(--color-dark--2);
+  margin: auto;
+  width: 70rem;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+.section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10rem;
+  margin-top: 2rem;
+}
+.season {
+  display: flex;
+  align-items: flex-end;
+  flex-flow: column;
+}
+
+.selectCountries {
+  display: flex;
+  gap: 2rem;
+}
+.form {
+  position: relative;
+}
+
+.form > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  color: var(--color-light--3);
+  background: transparent;
+  border-color: var(--color-brand--1);
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 rgba(237, 235, 235, 0.223);
+  transition: all 0.3s;
+}
+
+.form h2 {
+  font-size: 3.6rem;
+  text-align: center;
+}
+.season__title {
+  align-self: flex-start;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.difficulty {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.season input {
+  width: 6rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.inputRange {
+  -webkit-appearance: none; /* WebKit */
+  appearance: none; /* Standard */
+  width: 100%;
+  height: 5px; /* Height of the bar */
+  background: var(--color-light--3); /* Default color of the bar */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Default opacity */
+  transition: opacity 0.2s;
+}
+
+/* WebKit browsers: Customize the thumb */
+.inputRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px; /* Width of the thumb */
+  height: 25px; /* Height of the thumb */
+  background: var(--color-brand--2); /* Color of the thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Makes the thumb a circle */
+}
+.selectCountries button {
+  width: 28rem;
+  height: 4rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+}
+
+.ButtonsMain,
+.ButtonsSec {
+  width: 12rem;
+  height: 5rem;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  color: var(--color-light--3);
+  cursor: pointer;
+}
+.ButtonsMain {
+  background: var(--color-brand--2);
+  border: none;
+}
+.ButtonsSec {
+  background: transparent;
+  border-color: var(--color-brand--2);
+}
+.error {
+  font-size: 1.2rem;
+  color: var(--color-brand--1);
+}

@@ -1,0 +1,44 @@
+.countryItem {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  gap: 3rem;
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 1rem 2rem;
+  border-left: 5px solid var(--color-brand--1);
+  height: 8rem;
+  width: 40rem;
+}
+
+.countryItem span:first-child {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.countryName {
+  display: inline-block;
+  width: 50rem;
+}
+.countryFlag {
+  width: 7rem;
+  /*margin-right: auto;*/
+}
+.continent {
+  display: inline-block;
+  text-align: left;
+
+  width: 30rem;
+}
+
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+}

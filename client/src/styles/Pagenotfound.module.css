@@ -1,0 +1,39 @@
+.NotFoundPage {
+  height: 100vh;
+  background-color: var(--color-dark--1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main404 {
+  height: 80vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.bandSearch {
+  position: absolute;
+  top: 8rem;
+  right: 3.5rem;
+}
+
+.pageNotFound {
+  font-size: 6.6rem;
+  width: 70rem;
+  font-weight: 800;
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  width: 15rem;
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+  text-align: center;
+}
