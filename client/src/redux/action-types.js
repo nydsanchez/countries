@@ -1,0 +1,12 @@
+export const RETRIEVE_COUNTRY = "RETRIEVE_COUNTRY";
+
+export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
+export const RETRIEVE_ACTIVITY = "RETRIEVE_ACTIVITY";
+export const UPDATE_ACTIVITY = "UPTADE_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+
+export const SEARCH = "SEARCH";
+export const SORT = "SORT";
+export const APPLY_FILTER = "APPLY_FILTER";
+export const CLEAR_FILTER = "CLEAR_FILTER";
+export const ERROR = "ERROR";
