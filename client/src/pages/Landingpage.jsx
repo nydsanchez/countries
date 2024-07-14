@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-import Header from "../components/navpage/HeaderLanding";
 import styles from "../styles/Landingpage.module.css";
+import Logo from "../components/logo/Logo";
 
 function Landingpage() {
   return (
-    <main className={styles.homepage}>
-      <Header />
+    <div className={styles.container_landingpage}>
+      <Logo />
       <section>
         <h1>
           Share and Discover Activities Worldwide
@@ -23,7 +23,7 @@ function Landingpage() {
           Start Now
         </Link>
       </section>
-    </main>
+    </div>
   );
 }
 
