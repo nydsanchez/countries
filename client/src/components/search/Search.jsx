@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchCountry } from "../../redux/actions";
+import { search } from "../../redux/actions";
 import styles from "./Search.module.css";
 
 const Search = () => {
@@ -13,11 +13,7 @@ const Search = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    try {
-      dispatch(searchCountry(name));
-    } catch (error) {
-      alert(error.message);
-    }
+    dispatch(search(name));
   };
   return (
     <form className={styles.search} onSubmit={handleSearch}>

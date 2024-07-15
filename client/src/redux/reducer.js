@@ -1,7 +1,13 @@
-import { CREATE_ACTIVITY, RETRIEVE_COUNTRY, ERROR } from "./action-types";
+import {
+  CREATE_ACTIVITY,
+  RETRIEVE_COUNTRY,
+  ERROR,
+  SEARCH,
+} from "./action-types";
 const initialState = {
   country: [],
   activity: [],
+  search: [],
   error: "",
 };
 
@@ -18,6 +24,14 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         contry: payload,
+        error: null,
+      };
+
+    case SEARCH:
+      return {
+        ...state,
+        search: payload,
+        country: payload,
         error: null,
       };
 

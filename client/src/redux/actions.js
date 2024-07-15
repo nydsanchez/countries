@@ -1,5 +1,10 @@
 import axios from "axios";
-import { CREATE_ACTIVITY, RETRIEVE_COUNTRY, ERROR } from "./action-types";
+import {
+  CREATE_ACTIVITY,
+  RETRIEVE_COUNTRY,
+  ERROR,
+  SEARCH,
+} from "./action-types";
 
 const URL = "http://localhost:3001";
 
@@ -19,6 +24,17 @@ export const retrieveCountry = () => {
     try {
       const { data } = await axios.get(`${URL}/countries`);
       dispatch({ type: RETRIEVE_COUNTRY, payload: data });
+    } catch (error) {
+      dispatch({ type: ERROR, payload: error.message });
+    }
+  };
+};
+
+export const search = (name) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`${URL}/countries/name?name=${name}`);
+      dispatch({ type: SEARCH, payload: data });
     } catch (error) {
       dispatch({ type: ERROR, payload: error.message });
     }
