@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { Op } = require("sequelize");
-const { Country, Activity } = require("../db");
+const { Countries, Activities } = require("../db");
 
 const api = "http://localhost:5000/countries";
 
@@ -12,7 +12,7 @@ const dataFromApi = async (req, res) => {
         cca3,
         name,
         flags,
-        continents,
+        region,
         capital,
         subregion,
         area,
@@ -21,44 +21,41 @@ const dataFromApi = async (req, res) => {
 
       return {
         id: cca3,
-        name,
+        name: name.common,
         flag: flags.png,
-        continent: continents,
-        capital: capital.toString(),
+        continent: region,
+        capital: Array.isArray(capital) ? capital.join(", ") : capital,
         subregion,
         area,
         population,
       };
     });
 
-    await Country.bulkCreate(countryApi);
-    return res.status(200).json({
+    await Countries.bulkCreate(countryApi);
+    return {
+      success: true,
       message: "Se han cargado exitosamente los países en la base de datos",
-    });
+    };
   } catch (error) {
-    console.error("Error en getCountriesApi:", error);
-    return res.status(500).json({
-      message: "Error al cargar los países en la base de datos.",
-      error: error.message,
-    });
+    res.status(500).json({ message: error.message });
   }
 };
 
 const getAllCountries = async (req, res) => {
   try {
-    const countCountry = await Country.count();
-    if (countCountry.length === 0) {
-      dataFromApi();
-    } else {
-      const dataCountry = await Country.findAll({
-        include: {
-          model: Activity,
-          through: { attibutes: [] },
-          attibutes: ["id", "name"],
-        },
-      });
-      return res.status(200).json(dataCountry);
+    const countCountry = await Countries.count();
+    if (countCountry === 0) {
+      await dataFromApi();
     }
+
+    const dataCountry = await Countries.findAll({
+      include: {
+        model: Activities,
+        through: { attributes: [] },
+        attributes: ["id", "name"],
+      },
+    });
+    return res.status(200).json(dataCountry);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -67,9 +64,9 @@ const getAllCountries = async (req, res) => {
 const getCountryById = async (req, res) => {
   const { id } = req.params;
   try {
-    const country = await Country.findByPk(id, {
+    const country = await Countries.findByPk(id, {
       include: {
-        model: Activity,
+        model: Activities,
         through: { attibutes: [] },
         attibutes: ["name"],
       },
@@ -85,14 +82,14 @@ const getCountryById = async (req, res) => {
 const getCountriesByName = async (req, res) => {
   const { name } = req.query;
   try {
-    const countriesResult = await Country.findAll({
+    const countriesResult = await Countries.findAll({
       where: {
         name: {
           [Op.iLike]: `%${name}`,
         },
       },
       include: {
-        model: Activity,
+        model: Activities,
         through: { attibutes: [] },
         attibutes: ["id", "name"],
       },

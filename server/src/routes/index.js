@@ -1,18 +1,23 @@
 const { Router } = require("express");
-const { getAllCountries, getCountryById, getCountriesByName, dataComplete } =
-  requiere("../controllers/countries");
+
+const router = Router();
+const {
+  getAllCountries,
+  getCountryById,
+  getCountriesByName,
+} = require("../controllers/countries");
+
 const {
   getAllActivities,
   postActivity,
   putActivity,
   deleteActivity,
+  dataComplete,
 } = require("../controllers/activities");
 
-const router = Router();
-
+router.get("/countries/name", getCountriesByName);
 router.get("/countries", getAllCountries);
-router.get("/countries/:id", getCountryById);
-router.get("/countries/:name", getCountriesByName);
+router.get("/country/:id", getCountryById);
 
 router.get("/activities", getAllActivities);
 router.post("/activities", dataComplete, postActivity);

@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Country",
+    "Countries",
     {
       id: {
         type: DataTypes.STRING,
@@ -35,6 +35,7 @@ module.exports = (sequelize) => {
       },
       capital: {
         type: DataTypes.STRING,
+        defaultValue: "no data",
         allowNull: false,
         validate: {
           notNull: { msg: "Este campo no puede quedar vacio" },
