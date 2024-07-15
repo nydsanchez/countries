@@ -1,4 +1,4 @@
-/*import { useState } from "react";
+import { useState } from "react";
 
 import PageNav from "../components/navpage/NavPage";
 import OptAct from "../components/SmartBar/OptAct";
@@ -45,4 +45,3 @@ function Activitypage() {
 }
 
 export default Activitypage;
-*/
