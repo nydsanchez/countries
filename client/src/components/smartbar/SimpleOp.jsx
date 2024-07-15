@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import Search from "../Search";
-import Band from "../SmartBar/Band";
+import Search from "../search/Search";
+import Band from "./Band";
 
-import styles from "../SmartBar/Smart.module.css";
+import styles from "./Smart.module.css";
 
-function NavSimplePage() {
+function SimpleOp() {
   const location = useLocation();
   let title = location.pathname.substring(1).toUpperCase();
   return (
@@ -15,4 +15,4 @@ function NavSimplePage() {
   );
 }
 
-export default NavSimplePage;
+export default SimpleOp;
