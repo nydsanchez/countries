@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 import styles from "./filterandsorting.module.css";
 function FilterAndSorting({ onClose }) {
   return (
@@ -19,5 +20,8 @@ function FilterAndSorting({ onClose }) {
     </div>
   );
 }
+FilterAndSorting.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default FilterAndSorting;
