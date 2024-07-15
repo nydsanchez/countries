@@ -1,40 +1,72 @@
 import styles from "../styles/About.module.css";
 import PageNav from "../components/navpage/NavPage";
-import NavSimplePage from "../components/navpage/NavSimplePage";
+import SimpleOpt from "../components/smartbar/SimpleOp";
 import Footer from "../components/footer/Footer";
-import LogosFooter from "../components/footer/LogosFooter";
+import flags from "../assets/bk2.gif";
+import Henry from "../assets/Henrylogo.png";
+import awwwards from "../assets/awwards.png";
+import Jonas from "../assets/JonasLogo.png";
+import {
+  SiReact,
+  SiRedux,
+  SiSequelize,
+  SiExpress,
+  SiNodedotjs,
+} from "react-icons/si";
 
 function Aboutpage() {
   return (
     <div className={styles.about}>
-      <header className={styles.about__header}>
+      <header>
         <PageNav />
-        <NavSimplePage />
+        <SimpleOpt />
       </header>
       <main className={styles.about__content}>
         <section className={styles.content__text}>
           <p>
-            This web application is the result of a final project at Henry, a
-            technology education academy with a strong focus on employability.
-            The application has been built as a Single Page Application (SPA)
-            using modern technologies such as React, Redux, Node, Express, and
-            Sequelize.
-          </p>
-
-          <p>
-            The development of this application has allowed for the application
-            of basic styling and design resources, focusing on user experience
-            (UX) and user interface (UI). Additionally, it has been an
-            opportunity to affirm and connect the concepts learned throughout
-            the course, integrating best practices in the development process.
+            Esta aplicación web es el resultado del proyecto individual en
+            Henry, una academia de educación en tecnología con un fuerte enfoque
+            en la empleabilidad. La aplicación ha sido construida como una
+            Aplicación de Página Única (SPA) utilizando tecnologías modernas
+            como React, Redux, Node, Express y Sequelize.
+            <br /> <br /> El desarrollo de esta aplicación ha sido una
+            oportunidad para afirmar y consolidar los conceptos aprendidos a lo
+            largo del curso.
           </p>
         </section>
         <div className={styles.content__image}>
-          <img src="/bk2.gif" alt="Banderas del mundo" />
+          <img src={flags} alt="Banderas del mundo" />
         </div>
       </main>
+
+      <div className={styles.logosFooter}>
+        <section className={styles.SectionIcoApp}>
+          <SiReact className={styles.IcoApp} />
+          <SiRedux className={styles.IcoApp} />
+          <SiNodedotjs className={styles.IcoApp} />
+          <SiExpress className={styles.IcoApp} />
+          <SiSequelize className={styles.IcoApp} />
+        </section>
+        <section className={styles.SectionIcoApp__img}>
+          <img
+            src={Henry}
+            alt="Henrys logo"
+            className={`${styles.IcoApp_img__H} ${styles.filter_image}`}
+          />
+          <img
+            src={awwwards}
+            alt="awwwards logo"
+            className={`${styles.IcoApp_img} ${styles.filter_image}`}
+          />
+          <img
+            src={Jonas}
+            alt="Coding heroes logo"
+            className={`${styles.IcoApp_img__Jonas} ${styles.filter_image}`}
+          />
+        </section>
+      </div>
+
       <footer className={styles.about__footer}>
-        <LogosFooter />
         <Footer />
       </footer>
     </div>

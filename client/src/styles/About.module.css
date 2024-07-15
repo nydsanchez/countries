@@ -1,40 +1,76 @@
 .about {
   height: 100vh;
-  width: 100vw;
   background-color: var(--color-dark--1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.about__header {
-  width: 100vw;
+  justify-content: space-between;
 }
 
 .about__content {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 .content__text {
-  display: flex;
-  flex-flow: column;
-  align-self: flex-start;
   width: 80rem;
+  margin: auto;
 }
 
 .content__text > p {
   font-size: 1.8rem;
-  align-self: start;
   width: 100%;
 }
 
 .content__image {
   width: auto;
-  height: 47rem;
+  height: 40rem;
 }
 
 .content__image > img {
-  width: 100%;
+  width: 80%;
+}
+
+.logosFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark--2);
+  width: 100vw;
+}
+.SectionIcoApp,
+.SectionIcoApp__img {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+.SectionIcoApp__img {
+  margin-left: 5rem;
+}
+.IcoApp {
+  font-size: 5rem;
+  background: transparent;
+  color: var(--color-light--1);
+}
+
+.IcoApp_img {
+  width: 12rem;
+  height: 5rem;
+  position: relative;
+  top: -0.6rem;
+}
+.IcoApp_img__H {
+  width: 10rem;
+  height: 4.5rem;
+}
+.IcoApp_img__Jonas {
+  width: 13rem;
+  height: 4.5rem;
+}
+
+.filter_image {
+  filter: grayscale(100%) brightness(60%) sepia(100%) hue-rotate(180deg)
+    saturate(0%);
 }
