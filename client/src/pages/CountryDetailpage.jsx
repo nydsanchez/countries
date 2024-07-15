@@ -1,38 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { loadCountry } from "../redux/actions";
+import { Detail } from "../components/countrydetail/CountryDetail";
 import styles from "../styles/CountryDetail.module.css";
-import Footer from "../components/gralInfo/footer";
-import Logo from "../components/Logo";
+
+//import Footer from "../components/gralInfo/footer";
+
+import TouristActivities from "../components/countrydetail/TouristActivities";
 
 function CountryDetailpage() {
   const { id } = useParams();
-  const [country, setCountry] = useState({});
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country.regcountry);
 
   useEffect(() => {
-    const getCountryById = async () => {
-      try {
-        const { data } = await axios(`http://localhost:3001/country/${id}`);
-        setCountry(data);
-      } catch (error) {
-        console.error("Error fetching country data:", error);
-      }
-    };
-    getCountryById();
-    return () => setCountry({});
-  }, [id]);
+    dispatch(loadCountry(id));
+  }, [id, dispatch]);
 
   return (
     <div className={styles.gridContainer}>
-      <aside className={styles.sidebar}>
-        <Logo />
-        {console.log(country)}
-        <div className={styles.flag}>
-          <img src={country.flag} alt={`flag of ${country.name}`} />
-          <h2>{country.id}</h2>
-        </div>
-        <Footer />
-      </aside>
+      <Detail country={country} />
+
       <main className={styles.actCountries}>
         <section>
           <h2>{country.name}</h2>
@@ -40,6 +29,7 @@ function CountryDetailpage() {
             <img src="/MENU.svg" alt="menu" role="menu" />
           </button>
           <p>Tourist activities registred</p>
+          <TouristActivities country={country} />
         </section>
       </main>
     </div>

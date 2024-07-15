@@ -1,15 +1,25 @@
 import {
   CREATE_ACTIVITY,
-  RETRIEVE_COUNTRY,
-  ERROR,
+  RETRIEVE_COUNTRIES,
+  LOAD_COUNTRY,
   SEARCH,
+  ERROR,
 } from "./action-types";
 const initialState = {
-  country: [],
+  country: {
+    countries: [],
+    regcountry: [],
+  },
   activity: [],
   search: [],
   error: "",
 };
+/* countries: {
+    country: [],
+    selectedCountries: [],
+    countryBK: [],
+  },
+**/
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -20,10 +30,20 @@ const reducer = (state = initialState, { type, payload }) => {
         error: null,
       };
 
-    case RETRIEVE_COUNTRY:
+    case RETRIEVE_COUNTRIES:
       return {
         ...state,
-        contry: payload,
+        contry: { ...state.country, countries: payload },
+        error: null,
+      };
+
+    case LOAD_COUNTRY:
+      return {
+        ...state,
+        country: {
+          ...state.country,
+          regcountry: payload,
+        },
         error: null,
       };
 
