@@ -9,17 +9,13 @@ const initialState = {
   country: {
     countries: [],
     regcountry: [],
-  },
-  activity: [],
-  search: [],
-  error: "",
-};
-/* countries: {
-    country: [],
     selectedCountries: [],
     countryBK: [],
   },
-**/
+  activity: [],
+  search: [],
+  error: null,
+};
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -33,7 +29,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case RETRIEVE_COUNTRIES:
       return {
         ...state,
-        contry: { ...state.country, countries: payload },
+        country: { ...state.country, countries: payload },
         error: null,
       };
 
@@ -63,7 +59,7 @@ const reducer = (state = initialState, { type, payload }) => {
 
     default:
       return {
-        state,
+        ...state,
       };
   }
 };
