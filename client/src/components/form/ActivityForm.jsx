@@ -1,4 +1,4 @@
-import { GoArrowUpLeft } from "react-icons/go";
+//import { GoArrowUpLeft } from "react-icons/go";
 
 import styles from "./form.module.css";
 
@@ -6,91 +6,89 @@ function ActivityForm() {
   return (
     <div className={styles.form}>
       <h2>New activity</h2>
-      <button onClick={onClose}>X</button>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.section}>
-          <div>
-            <label htmlFor="name">Activity:</label>
-            <input type="text" id="name" name="name" />
-          </div>
-          <div>
-            <label htmlFor="difficulty">Difficulty (1 to 5): </label>
-            <span className={styles.difficulty}>no</span>
-            <input type="range" id="difficulty" name="difficulty" step="1" />
-          </div>
+      {/*  <button onClick={onClose}>X</button>
+      <form onSubmit={handleSubmit}> 
+      <div className={styles.section}>
+        <div>
+          <label htmlFor="name">Activity:</label>
+          <input type="text" id="name" name="name" />
         </div>
-        <div className={styles.section}>
-          <div className={styles.duration}>
-            <label htmlFor="duration">Duration:</label>
-            <input
-              type="text"
-              id="duration"
-              name="duration"
-              value={formData.duration}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className={styles.season}>
-            <p className={styles.season__title}> Season:</p>
-
-            <div>
-              <label htmlFor="winter">Winter</label>
-              <input type="checkbox" name="season" id="winter" />
-
-              <label htmlFor="summer">Summer</label>
-              <input type="checkbox" name="season" id="summer" />
-            </div>
-
-            <div>
-              <label htmlFor="spring">Spring</label>
-              <input type="checkbox" name="season" id="spring" />
-
-              <label htmlFor="autumn">Autumn</label>
-              <input type="checkbox" name="season" id="autumn" />
-            </div>
-          </div>
+        <div>
+          <label htmlFor="difficulty">Difficulty (1 to 5): </label>
+          <span className={styles.difficulty}>no</span>
+          <input type="range" id="difficulty" name="difficulty" step="1" />
         </div>
-        <div className={styles.section}>
-          <div className={styles.selectCountries}>
-            <button type="button">
-              <GoArrowUpLeft /> Choose/remove a country
-            </button>
-          </div>
-        </div>
-        {isCountryListVisible && (
-          <div className={styles.countryListContainer}>
-            <ModalCountry onClose={handleCloseModal} />
-          </div>
-        )}
-        <div className={styles.section}>
-          <label htmlFor="countries" className={styles.labelsection}>
-            Selected Countries:
-          </label>
-          <textarea
-            id="countries"
-            name="countries"
-            value={selectedCountries.join(", ")}
-            readOnly
+      </div>
+      <div className={styles.section}>
+        <div className={styles.duration}>
+          <label htmlFor="duration">Duration:</label>
+          <input
+            type="text"
+            id="duration"
+            name="duration"
+            value={formData.duration}
+            onChange={handleInputChange}
           />
-          {errors.countries && (
-            <p className={styles.error}>{errors.countries}</p>
-          )}
         </div>
-        <div className={styles.Buttons}>
-          <button type="submit" className={styles.ButtonsMain}>
-            Save
-          </button>
-          <button className={styles.ButtonsSec} onClick={handleClean}>
-            Clean
+        <div className={styles.season}>
+          <p className={styles.season__title}> Season:</p>
+
+          <div>
+            <label htmlFor="winter">Winter</label>
+            <input type="checkbox" name="season" id="winter" />
+
+            <label htmlFor="summer">Summer</label>
+            <input type="checkbox" name="season" id="summer" />
+          </div>
+
+          <div>
+            <label htmlFor="spring">Spring</label>
+            <input type="checkbox" name="season" id="spring" />
+
+            <label htmlFor="autumn">Autumn</label>
+            <input type="checkbox" name="season" id="autumn" />
+          </div>
+        </div>
+      </div>
+      <div className={styles.section}>
+        <div className={styles.selectCountries}>
+          <button type="button">
+            <GoArrowUpLeft /> Choose/remove a country
           </button>
         </div>
-      </form>
+      </div>
+      {isCountryListVisible && (
+        <div className={styles.countryListContainer}>
+          <ModalCountry onClose={handleCloseModal} />
+        </div>
+      )}
+      <div className={styles.section}>
+        <label htmlFor="countries" className={styles.labelsection}>
+          Selected Countries:
+        </label>
+        <textarea
+          id="countries"
+          name="countries"
+          value={selectedCountries.join(", ")}
+          readOnly
+        />
+        {errors.countries && <p className={styles.error}>{errors.countries}</p>}
+      </div>
+      <div className={styles.Buttons}>
+        <button type="submit" className={styles.ButtonsMain}>
+          Save
+        </button>
+        <button className={styles.ButtonsSec} onClick={handleClean}>
+          Clean
+        </button>
+      </div>
+       </form> */}
     </div>
   );
 }
-ActivityForm.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
+// ActivityForm.propTypes = {
+//   onClose: PropTypes.func.isRequired,
+// };
 
 export default ActivityForm;
 

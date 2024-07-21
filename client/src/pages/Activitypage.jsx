@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import PageNav from "../components/navpage/NavPage";
-import OptAct from "../components/SmartBar/OptAct";
+import OptAct from "../components/smartbar/SmartOp";
 import ActivityForm from "../components/form/ActivityForm";
-import Activity from "../components/tabla/Activities";
+//import Activity from "../components/tabla/Activities";
 
 import styles from "../styles/Homepage.module.css";
 function Activitypage() {
