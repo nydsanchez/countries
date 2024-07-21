@@ -2,13 +2,15 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import Band from "./Band";
-import Btn from "../button/Buttons";
 import Search from "../search/Search";
 import FilterAndSorting from "../sideMenu/FilterAndSorting";
+import Accordion from "../accordion/Accordion";
 //import Filter from "../Filter";
-//import Sort from "../Sort";
+import Sort from "../sort/Sort";
 import styles from "./Smart.module.css";
-import { TbAdjustmentsHorizontal } from "react-icons/tb";
+//import { TbAdjustmentsHorizontal } from "react-icons/tb";
+
+const data = ["Americas", "Asia", "Africa", "Antarctic", "Europe", "Oceania"];
 
 function SmartOp() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,18 +29,20 @@ function SmartOp() {
 
       <div className={styles.options}>
         <Search />
-
-        <Btn onClick={handleToggleFilter}>
-          <TbAdjustmentsHorizontal /> Filtro
-        </Btn>
+        <Accordion data={data} title="Continent" />{" "}
+        <Accordion data={data} title="Activity" />
+        <Sort />
       </div>
+      {/* <Btn onClick={handleToggleFilter}>
+          <TbAdjustmentsHorizontal /> Filtro
+        </Btn>{" "}
+        
+     
       {isOpen && (
         <div>
           <FilterAndSorting onClose={handleCloseModal} />
         </div>
-      )}
-      {/* <Sort />
-      <Filter /> */}
+      )}<Filter /> */}
     </div>
   );
 }
