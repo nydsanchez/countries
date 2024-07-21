@@ -1,0 +1,15 @@
+.accordion {
+  display: flex;
+  width: 20rem;
+
+  justify-content: space-between;
+}
+
+.title {
+  width: 15rem;
+}
+
+.icon {
+  display: inline-block;
+  padding-left: 5rem;
+}
