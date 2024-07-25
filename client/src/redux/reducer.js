@@ -1,7 +1,10 @@
 import {
   CREATE_ACTIVITY,
+  RETRIEVE_ACTIVITIES,
+  DELETE_ACTIVITY,
   RETRIEVE_COUNTRIES,
   LOAD_COUNTRY,
+  SELECTED_COUNTRIES,
   SEARCH,
   ERROR,
 } from "./action-types";
@@ -10,7 +13,7 @@ const initialState = {
     countries: [],
     regcountry: [],
     selectedCountries: [],
-    countryBK: [],
+    countriesBK: [],
   },
   activity: [],
   search: [],
@@ -26,10 +29,24 @@ const reducer = (state = initialState, { type, payload }) => {
         error: null,
       };
 
+    case RETRIEVE_ACTIVITIES:
+      return {
+        ...state,
+        activity: payload,
+        error: null,
+      };
+
+    case DELETE_ACTIVITY:
+      return {
+        ...state,
+        activity: state.activity.filter((act) => act.id !== payload),
+        error: null,
+      };
+
     case RETRIEVE_COUNTRIES:
       return {
         ...state,
-        country: { ...state.country, countries: payload },
+        country: { ...state.country, countries: payload, countriesBK: payload },
         error: null,
       };
 
@@ -41,6 +58,15 @@ const reducer = (state = initialState, { type, payload }) => {
           regcountry: payload,
         },
         error: null,
+      };
+
+    case SELECTED_COUNTRIES:
+      return {
+        ...state,
+        country: {
+          ...state.country,
+          selectedCountries: payload,
+        },
       };
 
     case SEARCH:
