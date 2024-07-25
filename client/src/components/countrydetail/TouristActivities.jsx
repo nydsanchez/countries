@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import styles from "../styles/CountryDetail.module.css";
-import Accordion from "./Accordion";
+import styles from "../../styles/CountryDetail.module.css";
+import Accordion from "../accordion/Accordion";
 
 function TouristActivities({ country }) {
   const activities = country.activities || []; // Suponiendo que 'activities' es un array de objetos { title, description }

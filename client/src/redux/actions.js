@@ -1,8 +1,11 @@
 import axios from "axios";
 import {
   CREATE_ACTIVITY,
+  RETRIEVE_ACTIVITIES,
+  DELETE_ACTIVITY,
   RETRIEVE_COUNTRIES,
   LOAD_COUNTRY,
+  SELECTED_COUNTRIES,
   SEARCH,
   ERROR,
 } from "./action-types";
@@ -14,6 +17,28 @@ export const createActivity = (activity) => {
     try {
       const { data } = await axios.post(`${URL}/activities`, activity);
       dispatch({ type: CREATE_ACTIVITY, payload: data });
+    } catch (error) {
+      dispatch({ type: ERROR, payload: error.message });
+    }
+  };
+};
+
+export const retrieveActivities = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`${URL}/activities`);
+      dispatch({ type: RETRIEVE_ACTIVITIES, payload: data });
+    } catch (error) {
+      dispatch({ type: ERROR, payload: error.message });
+    }
+  };
+};
+
+export const deleteActivity = (id) => {
+  return async (dispatch) => {
+    try {
+      await axios.delete(`${URL}/activities/${id}`);
+      dispatch({ type: DELETE_ACTIVITY, payload: id });
     } catch (error) {
       dispatch({ type: ERROR, payload: error.message });
     }
@@ -33,8 +58,15 @@ export const retrieveCountries = () => {
 
 export const loadCountry = (id) => {
   return async (dispatch) => {
-    const { data } = await axios.get(`${URL}/countries/${id}`);
+    const { data } = await axios.get(`${URL}/country/${id}`);
     dispatch({ type: LOAD_COUNTRY, payload: data });
+  };
+};
+
+export const setSelectedCountries = (selectedCountries) => {
+  return {
+    type: SELECTED_COUNTRIES,
+    payload: selectedCountries,
   };
 };
 

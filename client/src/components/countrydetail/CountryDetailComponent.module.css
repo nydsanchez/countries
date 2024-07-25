@@ -1,0 +1,44 @@
+.container_detail {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.flag {
+  width: 45rem;
+}
+.flag > img {
+  width: 100%;
+}
+.flag > h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* General Information component*/
+.bottomContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30rem;
+  height: 4rem;
+  background-color: var(--color-dark--0);
+  color: var(--color-light--3);
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  left: 10rem;
+  bottom: 0;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+/*title "General Information*/
+.bottomContainer h2 {
+  text-align: center;
+  line-height: 4.5rem;
+}
+
+/* icono de la seccion Genral Information*/
+.bottomContainer .ico {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: var(--color-light--3);
+}
