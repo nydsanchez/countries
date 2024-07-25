@@ -9,18 +9,19 @@ function Landingpage() {
       <Logo />
       <section>
         <h1>
-          Share and Discover Activities Worldwide
-          <br /> with CountryExplore
+          Comparte y descubre actividades en todo el mundo
+          <br /> con CountryExplore
         </h1>
         <h2>
-          CountryExplorer help fellow travelers discover what to do and when in
-          every corner of the globe. <br />
-          Whether you&apos;re planning your next destination or seeking
-          inspiration for your next adventure, CountryExplorer is the perfect{" "}
-          <br /> platform to connect and explore
+          CountryExplorer ayuda a otros viajeros a descubrir qué hacer y cuándo
+          en cada rincón del mundo. <br />
+          Ya sea que estés planeando tu próximo destino o buscando inspiración
+          para tu próxima aventura,
+          <br />
+          CountryExplorer es la plataforma perfecta para conectarte y explorar
         </h2>
         <Link to="/home" className="cta">
-          Start Now
+          Empieza ahora!
         </Link>
       </section>
     </div>
