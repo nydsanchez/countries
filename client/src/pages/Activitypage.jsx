@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-import PageNav from "../components/navpage/NavPage";
-import OptAct from "../components/smartbar/SmartOp";
+import NavPage from "../components/navpage/NavPage";
+import OptAct from "../components/smartbar/ActivityOp";
 import ActivityForm from "../components/form/ActivityForm";
-//import Activity from "../components/tabla/Activities";
+import Activity from "../components/table/Activities";
 
-import styles from "../styles/Homepage.module.css";
+import styles from "../styles/Activities.module.css";
+
 function Activitypage() {
   const [showForm, setShowForm] = useState(false);
   const [showTable, setShowTable] = useState(false);
@@ -31,15 +32,17 @@ function Activitypage() {
   };
   return (
     <div className={styles.homepage}>
-      <PageNav />
-      <OptAct
-        onNewClick={handleShowForm}
-        onViewClick={handleShowTable}
-        isViewDisabled={isViewDisabled}
-        isNewDisabled={isNewDisabled}
-      />
-      {showForm && <ActivityForm onClose={handleCloseForm} />}
-      {showTable && <Activity onClose={handleCloseTable} />}
+      <header>
+        <NavPage />
+        <OptAct
+          onNewClick={handleShowForm}
+          onViewClick={handleShowTable}
+          isViewDisabled={isViewDisabled}
+          isNewDisabled={isNewDisabled}
+        />
+        {showForm && <ActivityForm onClose={handleCloseForm} />}
+        {showTable && <Activity onClose={handleCloseTable} />}
+      </header>
     </div>
   );
 }
