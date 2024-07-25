@@ -1,7 +1,6 @@
 //import PropTypes from "prop-types";
 
 import Logo from "../logo/Logo";
-import GeneralInformation from "./GeneralInformation";
 import styles from "./CountryDetailComponent.module.css";
 
 function CountryDetail({ country }) {
@@ -13,9 +12,12 @@ function CountryDetail({ country }) {
         <img src={country.flag} alt={`flag of ${country.name}`} />
         <h2>{country.id}</h2>
       </div>
-      <GeneralInformation />
     </div>
   );
 }
+
+// CountryDetail.propTypes = {
+//   country: PropTypes.object.isRequired,
+// };
 
 export default CountryDetail;

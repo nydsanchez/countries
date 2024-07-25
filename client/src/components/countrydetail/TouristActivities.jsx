@@ -1,22 +1,37 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import styles from "../../styles/CountryDetail.module.css";
-import Accordion from "../accordion/Accordion";
+import menu from "../../assets/MENU.svg";
+import AsideMenu from "../sideMenu/AsideMenu";
 
 function TouristActivities({ country }) {
-  const activities = country.activities || []; // Suponiendo que 'activities' es un array de objetos { title, description }
+  const [isOpen, setIsOpen] = useState();
 
-  const accordionItems = activities.map((activity) => ({
-    title: activity.title,
-    content: <p>{activity.description}</p>, // Puedes personalizar el contenido según tus necesidades
-  }));
+  const handleToggleFilter = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <main className={styles.actCountries}>
-      <section>
+    <div className={styles.actCountries}>
+      <header>
         <h2>{country.name}</h2>
-        <Accordion items={accordionItems} />
+        <button className={styles.btnMenu} onClick={handleToggleFilter}>
+          <img src={menu} alt="menu" role="menu" />
+        </button>
+        {isOpen && (
+          <div>
+            <AsideMenu onClose={handleCloseModal} />
+          </div>
+        )}
+      </header>
+      <section>
+        <h3>Actividades turisticas</h3>
       </section>
-    </main>
+    </div>
   );
 }
 

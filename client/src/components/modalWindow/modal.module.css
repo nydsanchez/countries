@@ -1,28 +1,55 @@
 .modalOverlay {
+  display: flex;
+  flex-flow: column;
   position: fixed;
   top: 0;
   left: 0rem;
   bottom: 0;
-  width: 150rem;
+  width: 100vw;
   height: 100vh;
-  background: rgba(36, 42, 46, 80%);
+  background: rgba(36, 42, 46, 70%);
 }
 
 .modal {
-  background: #242a2e;
+  background: var(--color-modal--0);
   display: flex;
-  padding: 20px;
+  flex-flow: column;
+  justify-content: center;
+
+  gap: 0.5rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+
   border-radius: 8px;
-  max-width: 50rem;
-  max-height: 100vw;
-  overflow-y: auto;
-  position: relative;
+  max-width: 40vw;
+  max-height: 50vw;
+
+  width: 30vw;
+  height: 40vh;
+  padding: 20px;
+  z-index: 200;
 }
 
 .closeButton {
   position: absolute;
   top: 40rem;
   left: 70rem;
+}
+.closeButton__info {
+  position: absolute;
+  top: 43%;
+  right: 22%;
+  z-index: 500;
+  border: none;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+.closeButton__info:hover {
+  transform: scale(1.1);
 }
 .closeButton > button {
   background: #2c3e50;
@@ -57,4 +84,48 @@
 }
 .searchCountry {
   width: 100%;
+}
+
+.modal > p {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-light--3);
+}
+
+.modal > p > span {
+  font-style: normal;
+  font-weight: 300;
+  color: #fff;
+}
+.stats {
+  padding-top: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.stats p {
+  font-size: 2.8rem;
+  color: var(--color-brand--2);
+  font-weight: 600;
+  text-align: center;
+}
+
+.stats_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.stats_data > span,
+.stats_img__area {
+  font-size: 2.4rem;
+}
+.stats_img__group {
+  font-size: 3rem;
+  color: var(--color-light--1);
+}
+
+.stats_img__area {
+  color: var(--color-light--1);
 }

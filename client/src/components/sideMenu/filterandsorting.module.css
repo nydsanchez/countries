@@ -22,6 +22,44 @@
   padding: 20px;
   overflow-y: auto;
 }
+.nav_menu {
+  background: var(--color-modal--0);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 80%;
+  width: 20vw;
+  height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav_menu a:link,
+.nav_menu a:visited {
+  text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+/* CSS Modules feature */
+.nav a:global(.active) {
+  color: var(--color-brand--2);
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+}
+
 .closeButton {
   position: absolute;
   top: 50%;
@@ -78,4 +116,20 @@
   background: var(--color-brand--2);
   border-color: var(--color-brand--2);
   color: #fff;
+}
+
+.btnMenu {
+  border: none;
+  background: transparent;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  right: 6.5rem;
+  z-index: 100;
+}
+
+.btnMenu > img {
+  width: 4rem;
 }
