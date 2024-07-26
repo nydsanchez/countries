@@ -1,3 +1,7 @@
+import { useDispatch } from "react-redux";
+import { clearData } from "../redux/actions";
+import { useEffect } from "react";
+
 import styles from "../styles/About.module.css";
 import PageNav from "../components/navpage/NavPage";
 import SimpleOpt from "../components/smartbar/SimpleOp";
@@ -15,6 +19,12 @@ import {
 } from "react-icons/si";
 
 function Aboutpage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearData());
+  }, [dispatch]);
+
   return (
     <div className={styles.about}>
       <header>

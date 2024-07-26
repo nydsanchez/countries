@@ -8,6 +8,7 @@ import {
   SELECTED_COUNTRIES,
   DESELECTED_VALUE,
   SEARCH,
+  CLEAR_FILTER,
   ERROR,
 } from "./action-types";
 
@@ -86,5 +87,11 @@ export const search = (name) => {
     } catch (error) {
       dispatch({ type: ERROR, payload: error.message });
     }
+  };
+};
+
+export const clearData = () => {
+  return {
+    type: CLEAR_FILTER,
   };
 };

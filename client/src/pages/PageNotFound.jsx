@@ -1,5 +1,8 @@
 import styles from "../styles/Pagenotfound.module.css";
 
+import { useDispatch } from "react-redux";
+import { clearData } from "../redux/actions";
+import { useEffect } from "react";
 import { BsRocket } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
@@ -10,6 +13,12 @@ import Footer from "../components/footer/Footer";
 import image404 from "../assets/404.svg";
 
 function PageNotFound() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearData());
+  }, [dispatch]);
+
   return (
     <div className={styles.NotFoundPage}>
       <header>

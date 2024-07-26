@@ -5,9 +5,10 @@ import {
   RETRIEVE_COUNTRIES,
   LOAD_COUNTRY,
   SELECTED_COUNTRIES,
+  DESELECTED_VALUE,
   SEARCH,
   ERROR,
-  DESELECTED_VALUE,
+  CLEAR_FILTER,
 } from "./action-types";
 const initialState = {
   country: {
@@ -17,6 +18,7 @@ const initialState = {
     countriesBK: [],
   },
   activity: [],
+  filteredCountries: [],
   search: [],
   error: null,
 };
@@ -86,7 +88,8 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         search: payload,
-        country: payload,
+        country: { ...state.country, countries: payload },
+        filteredCountries: [],
         error: null,
       };
 
@@ -94,6 +97,19 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         error: payload,
+      };
+
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        country: {
+          ...state.country,
+          regcountry: [],
+          selectedCountries: [],
+        },
+        filteredCountries: [],
+        search: [],
+        error: null,
       };
 
     default:

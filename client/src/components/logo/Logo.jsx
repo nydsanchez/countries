@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import styles from "./Logo.module.css";
 import logo from "../../assets/logo.png";
 
-function Logo() {
+function Logo({ onClick }) {
   return (
-    <Link to="/home">
+    <a href="/home" onClick={onClick}>
       <img src={logo} alt="CountryExplorer logo" className={styles.logo} />
-    </Link>
+    </a>
   );
 }
 
