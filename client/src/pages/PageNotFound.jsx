@@ -19,11 +19,11 @@ function PageNotFound() {
       <main className={styles.main404}>
         <img src={image404} alt="code 404 not found" />
         <p className={styles.pageNotFound}>
-          Oops, it seems like you’re lost in space
+          Ups, parece que estás perdido en el espacio
         </p>
 
         <NavLink to="/home" className={styles.ctaLink}>
-          <BsRocket /> HOME
+          <BsRocket /> INICIO
         </NavLink>
       </main>
       <Footer />
