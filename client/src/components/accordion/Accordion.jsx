@@ -1,37 +1,37 @@
 import AccordionItem from "./AccordionItem";
-import PropTypes from "prop-types";
+import ico from "../../utils/ico";
+//import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./accordion.module.css";
-import Btn from "../button/Buttons";
 
-function Accordion({ data, title }) {
+function Accordion({ country, title }) {
   const [isOpen, setIsOpen] = useState(false);
   function handleToggle() {
     setIsOpen(!isOpen);
   }
   return (
     <div className={styles.accordion}>
-      <Btn className={styles.title} onClick={handleToggle}>
-        {title}
+      <div
+        className={`${styles.title} ${styles[title]}`}
+        onClick={handleToggle}
+      >
+        <img src={ico(title)} alt={`${title} icon`} />
+        <h3>{title}</h3>
         <span className={styles.icon}>{isOpen ? " -" : " +"}</span>
-      </Btn>
+      </div>
 
       {isOpen &&
-        data.map((elemente, index) => (
+        country.Activities.map((elemente, index) => (
           <AccordionItem content={elemente} key={index} />
         ))}
     </div>
   );
 }
 
-Accordion.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.node.isRequired,
-    })
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
+// Accordion.propTypes = {
+//   country: PropTypes.obj.isRequired,
+//   title: PropTypes.string.isRequired,
+// };
 
 /*  ACCORDION CHATGPT
 

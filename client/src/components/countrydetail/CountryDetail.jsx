@@ -17,7 +17,7 @@ function CountryDetail({ country }) {
 }
 
 // CountryDetail.propTypes = {
-//   country: PropTypes.object.isRequired,
+//   country: PropTypes.array.isRequired,
 // };
 
 export default CountryDetail;

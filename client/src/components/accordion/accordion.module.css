@@ -1,15 +1,44 @@
 .accordion {
   display: flex;
-  width: 20rem;
-
-  justify-content: space-between;
+  margin: auto;
+  width: 50rem;
+  border: 1px solid blue;
 }
 
 .title {
-  width: 15rem;
+  display: flex;
+  justify-content: space-around;
+  width: 50rem;
+  height: 8rem;
+  border: 1px solid red;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: var(--color-dark--2);
+}
+
+.Verano {
+  border-left: 5px solid #fce405;
+}
+.Otono {
+  border-left: 5px solid #fc7c05;
+}
+.Primavera {
+  border-left: 5px solid #48f844;
+}
+.Invierno {
+  border-left: 5px solid #0b99ff;
+}
+
+.title > img {
+  width: 10%;
+}
+
+.title > h3,
+.title > span {
+  font-size: 3.2rem;
+  color: var(--color-light--3);
 }
 
 .icon {
   display: inline-block;
-  padding-left: 5rem;
 }

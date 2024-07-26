@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "../../styles/CountryDetail.module.css";
 import menu from "../../assets/MENU.svg";
 import AsideMenu from "../sideMenu/AsideMenu";
+import Accordion from "../accordion/Accordion";
 
 function TouristActivities({ country }) {
   const [isOpen, setIsOpen] = useState();
@@ -29,14 +30,14 @@ function TouristActivities({ country }) {
         )}
       </header>
       <section>
-        <h3>Actividades turisticas</h3>
+        <h2>Actividades turisticas</h2>
+        <Accordion country={country} title="Verano" />
+        <Accordion country={country} title="Otono" />
+        <Accordion country={country} title="Primavera" />
+        <Accordion country={country} title="Invierno" />
       </section>
     </div>
   );
 }
-
-TouristActivities.propTypes = {
-  country: PropTypes.object.isRequired,
-};
 
 export default TouristActivities;
