@@ -6,6 +6,7 @@ import {
   RETRIEVE_COUNTRIES,
   LOAD_COUNTRY,
   SELECTED_COUNTRIES,
+  DESELECTED_VALUE,
   SEARCH,
   ERROR,
 } from "./action-types";
@@ -63,10 +64,17 @@ export const loadCountry = (id) => {
   };
 };
 
-export const setSelectedCountries = (selectedCountries) => {
+export const setSelectedCountries = (value) => {
   return {
     type: SELECTED_COUNTRIES,
-    payload: selectedCountries,
+    payload: value,
+  };
+};
+
+export const deselectedValue = (value) => {
+  return {
+    type: DESELECTED_VALUE,
+    payload: value,
   };
 };
 

@@ -3,11 +3,9 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { createActivity } from "../../redux/actions";
-
-import ModalCountry from "../modalWindow/modalWindow";
+import MultiSelect from "../select/Multiselect";
 import validation from "../../utils/validation";
 
-import { GoArrowUpLeft } from "react-icons/go";
 import styles from "./form.module.css";
 
 function ActivityForm({ onClose }) {
@@ -21,7 +19,6 @@ function ActivityForm({ onClose }) {
 
   // State local del componente
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isCountryListVisible, setIsCountryListVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     difficulty: "",
@@ -88,22 +85,13 @@ function ActivityForm({ onClose }) {
       season: [],
       countries: [],
     });
-    // dispatch(clearFilters());
+
     setErrors({});
-  };
-
-  // Funciones para manejar la lista de países y el modal
-  const handleToggleCountryList = () => {
-    setIsCountryListVisible(!isCountryListVisible);
-  };
-
-  const handleCloseModal = () => {
-    setIsCountryListVisible(false);
   };
 
   return (
     <div className={styles.form}>
-      <h2>New activity</h2>
+      <h2>Nueva Actividad Turistica</h2>
       <button onClick={onClose}>X</button>
       <form onSubmit={handleSubmit}>
         <div className={styles.section}>
@@ -196,29 +184,22 @@ function ActivityForm({ onClose }) {
         </div>
         <div className={styles.section}>
           <div className={styles.selectCountries}>
-            <button type="button" onClick={handleToggleCountryList}>
-              <GoArrowUpLeft /> Seleccionar o quitar un país
-            </button>
+            <MultiSelect />
+            <div>
+              <label htmlFor="countries" className={styles.labelsection}>
+                Países seleccionados:
+              </label>
+              <textarea
+                id="countries"
+                name="countries"
+                value={selectedCountries.join(", ")}
+                readOnly
+              />
+              {errors.countries && (
+                <p className={styles.error}>{errors.countries}</p>
+              )}
+            </div>
           </div>
-        </div>
-        {isCountryListVisible && (
-          <div className={styles.countryListContainer}>
-            <ModalCountry onClose={handleCloseModal} />
-          </div>
-        )}
-        <div className={styles.section}>
-          <label htmlFor="countries" className={styles.labelsection}>
-            Países seleccionados:
-          </label>
-          <textarea
-            id="countries"
-            name="countries"
-            value={selectedCountries.join(", ")}
-            readOnly
-          />
-          {errors.countries && (
-            <p className={styles.error}>{errors.countries}</p>
-          )}
         </div>
         <div className={styles.Buttons}>
           <button type="submit" className={styles.ButtonsMain}>

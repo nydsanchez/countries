@@ -1,4 +1,4 @@
-const { Activity, Country } = require("../db");
+const { Activities, Countries } = require("../db");
 
 const dataComplete = async (req, res, next) => {
   const { name, duration, difficulty, season, countries } = req.body;
@@ -22,9 +22,10 @@ const dataComplete = async (req, res, next) => {
 
 const getAllActivities = async (req, res) => {
   try {
-    const count = await Activity.count();
-    if (count.length > 0) {
-      const activities = await Activity.findAll();
+    const count = await Activities.count();
+    console.log(count);
+    if (count > 0) {
+      const activities = await Activities.findAll();
       return res.status(200).json(activities);
     } else {
       return res.status(200).json({
@@ -38,29 +39,41 @@ const getAllActivities = async (req, res) => {
 };
 
 const postActivity = async (req, res) => {
-  const { name, difficulty, duration, season, country } = req.body;
+  const { name, difficulty, duration, season, countries } = req.body;
   try {
-    const [newActivity, created] = await Activity.findOrCreate({
+    const [newActivity, created] = await Activities.findOrCreate({
       where: {
         name,
-        defaults: {
-          name,
-          difficulty: Number(difficulty),
-          duration: Number(duration),
-          season: season.toString(),
-        },
+      },
+      defaults: {
+        difficulty: Number(difficulty),
+        duration: Number(duration),
+        season: season.toString(),
       },
     });
     if (created) {
+      for (const c of countries) {
+        const country = await Countries.findByPk(c);
+        if (country) {
+          await country.addActivity(newActivity);
+        } else {
+          console.warn(`Country with id ${c.id} not found.`);
+        }
+      }
+      return res.status(200).json({ message: "Actividad creada exitosamente" });
+    } else {
+      return res.status(200).json({ message: "Esa actividad ya existe" });
     }
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 const putActivity = async (req, res) => {
   const { id } = req.params;
-  const { name, difficulty, duration, season, country } = req.body;
+  const { name, difficulty, duration, season, countries } = req.body;
   try {
-    const activityToModify = await Activity.findByPk(id);
+    const activityToModify = await Activities.findByPk(id);
     if (activityToModify) {
       if (activityToModify.name !== name) {
         activityToModify.name = name;
@@ -77,12 +90,12 @@ const putActivity = async (req, res) => {
 
       await activityToModify.save();
 
-      if (country.length > 0) {
+      if (countries.length > 0) {
         await activityToModify.setCountries(country);
       }
-      const modifiedActivity = await Activity.findByPk(id, {
+      const modifiedActivity = await Activities.findByPk(id, {
         include: {
-          model: Country,
+          model: Countries,
           through: { attributes: [] },
           attributes: ["id"],
         },
@@ -100,7 +113,7 @@ const putActivity = async (req, res) => {
 const deleteActivity = async (req, res) => {
   const { id } = req.params;
   try {
-    const activityToDelete = await Activity.findByPk(id);
+    const activityToDelete = await Activities.findByPk(id);
     if (activityToDelete) {
       const associatedCountries = await activityToDelete.getCountries();
       for (const country of associatedCountries) {

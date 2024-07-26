@@ -37,12 +37,12 @@ body {
 label {
   font-size: 1.6rem;
   font-weight: 600;
+  display: inline-block;
 }
 
 input,
-select,
-textarea {
-  width: 100%;
+select {
+  width: 30rem;
   padding: 0.8rem 1.2rem;
   font-family: inherit;
   font-size: 1.6rem;

@@ -1,13 +1,12 @@
 .container__Acttable {
   display: flex;
   flex-flow: column;
-  margin: auto;
+  background: var(--color-modal--0);
+  position: relative;
+  margin: 5rem auto;
   width: 70rem;
   color: var(--color-light--2);
-  box-shadow: 0 2.4rem 4.8rem rgba(245, 244, 244, 0.015);
   border-radius: 1.5rem;
-  background: var(--color-dark--2);
-  position: relative;
 }
 
 .table {
@@ -25,15 +24,16 @@
 }
 
 .table thead th {
-  background: var(--color-brand--1);
-  color: #fff;
+  background: var(--color-dark--2);
+  color: var(--color-brand--1);
 }
 .table tbody tr:nth-child(odd) {
-  background: var(--color-light--1);
+  background: var(--color-brand--1);
+  color: var(--color-dark--1);
 }
 .table tbody tr:nth-child(even) {
   background: var(--color-brand--2);
-  color: #fff;
+  color: var(--color-dark--1);
 }
 
 .table th,
@@ -62,7 +62,7 @@
 }
 
 .icon_mobile {
-  color: var(--color-main);
+  color: var(--color-dark--1);
 }
 
 .pag {

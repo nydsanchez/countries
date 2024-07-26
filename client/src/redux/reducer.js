@@ -7,6 +7,7 @@ import {
   SELECTED_COUNTRIES,
   SEARCH,
   ERROR,
+  DESELECTED_VALUE,
 } from "./action-types";
 const initialState = {
   country: {
@@ -26,6 +27,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         activity: [...state.activity, payload],
+        country: { ...state.country, selectedCountries: [] },
         error: null,
       };
 
@@ -65,7 +67,18 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         country: {
           ...state.country,
-          selectedCountries: payload,
+          selectedCountries: [...state.country.selectedCountries, payload],
+        },
+      };
+
+    case DESELECTED_VALUE:
+      return {
+        ...state,
+        country: {
+          ...state.country,
+          selectedCountries: state.country.selectedCountries.filter(
+            (value) => value !== payload
+          ),
         },
       };
 
