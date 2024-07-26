@@ -21,8 +21,8 @@ function Accordion({ country, title }) {
       </div>
 
       {isOpen &&
-        country.Activities.map((elemente, index) => (
-          <AccordionItem content={elemente} key={index} />
+        country.map((elemente, index) => (
+          <AccordionItem content={elemente} id={index} key={index} />
         ))}
     </div>
   );

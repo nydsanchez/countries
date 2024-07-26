@@ -1,9 +1,9 @@
-function AccordionItem({ content }) {
+function AccordionItem({ content, id }) {
   return (
-    <div className="content-box">
-      <input type="checkbox" id={content} name={content} />
-      <label htmlFor={content}> {content}</label>
-    </div>
+    <ul className="content-box">
+      {console.log(content)}
+      <li key={id}>{content}</li>
+    </ul>
   );
 }
 
