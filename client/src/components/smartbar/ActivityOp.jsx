@@ -34,7 +34,7 @@ function ActivityOp({
 ActivityOp.propTypes = {
   onNewClick: PropTypes.func.isRequired,
   onViewClick: PropTypes.func.isRequired,
-  isNewDisabled: PropTypes.func.isRequired,
-  isViewDisabled: PropTypes.func.isRequired,
+  isNewDisabled: PropTypes.bool.isRequired,
+  isViewDisabled: PropTypes.bool.isRequired,
 };
 export default ActivityOp;
