@@ -1,6 +1,6 @@
 //import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+
 import styles from "../../styles/CountryDetail.module.css";
 import menu from "../../assets/MENU.svg";
 import AsideMenu from "../sideMenu/AsideMenu";
@@ -79,13 +79,13 @@ function TouristActivities({ country }) {
           </div>
         )}
       </header>
-      <section>
-        <h2>Actividades turisticas</h2>
+      <div className={styles.accordionSection}>
+        <h3>Actividades turisticas</h3>
         <Accordion country={summerAct} title="Verano" />
         <Accordion country={fallAct} title="Otono" />
         <Accordion country={springAct} title="Primavera" />
         <Accordion country={winterAct} title="Invierno" />
-      </section>
+      </div>
     </div>
   );
 }

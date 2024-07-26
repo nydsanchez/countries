@@ -1,21 +1,40 @@
 .accordion {
   display: flex;
-  margin: auto;
+  flex-flow: column;
+  margin: 0.5rem auto;
   width: 50rem;
-  border: 1px solid blue;
+}
+.content_box {
+  background: var(--color-dark--0);
+  border-radius: 0 0 10px 10px;
 }
 
+.content_box_item {
+  display: flex;
+  gap: 2rem;
+  padding-left: 4rem;
+  color: var(--color-light--3);
+}
+
+.content_box_item li {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
 .title {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 50rem;
   height: 8rem;
-  border: 1px solid red;
+  border-radius: 10px 10px 0 0;
   font-size: 1.5rem;
   font-weight: 600;
   background-color: var(--color-dark--2);
 }
 
+.title > h3 {
+  width: 15rem;
+}
 .Verano {
   border-left: 5px solid #fce405;
 }

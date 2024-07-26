@@ -17,12 +17,19 @@
 }
 
 .actCountries {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
   background-image: url("../assets/bg-page.png");
   background-size: cover;
   background-position: center;
   color: var(--color-dark--1);
   position: relative;
   height: 100vh;
+}
+.actCountries header {
+  height: 10rem;
+  margin-bottom: auto;
 }
 
 .actCountries h2 {
@@ -35,7 +42,6 @@
 .actCountries p {
   padding: 5rem;
   font-size: 2.4rem;
-  color: blue;
 }
 
 .btnMenu {
@@ -51,4 +57,14 @@
 
 .btnMenu > img {
   width: 4rem;
+}
+
+.accordionSection > h3 {
+  font-size: 2.8rem;
+  color: var(--color-dark--0);
+  padding: 0 0 4rem 5rem;
+}
+
+.accordionSection {
+  margin-bottom: auto;
 }
