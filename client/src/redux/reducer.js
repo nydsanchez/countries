@@ -9,6 +9,7 @@ import {
   SEARCH,
   ERROR,
   CLEAR_FILTER,
+  SORT,
 } from "./action-types";
 const initialState = {
   country: {
@@ -20,6 +21,15 @@ const initialState = {
   activity: [],
   filteredCountries: [],
   search: [],
+  filters: {
+    continent: "",
+    activity: "",
+  },
+  sortBy: {
+    key: "",
+    order: "",
+    sorted: false,
+  },
   error: null,
 };
 
@@ -92,6 +102,32 @@ const reducer = (state = initialState, { type, payload }) => {
         filteredCountries: [],
         error: null,
       };
+
+    case SORT: {
+      const { sortBy, sortOrder } = payload;
+      let sortedCountries = [...state.country.countries];
+      if (sortBy === "country") {
+        sortedCountries.sort((a, b) => {
+          if (sortOrder === "asc") {
+            return a.name.localeCompare(b.name);
+          } else {
+            return b.name.localeCompare(a.name);
+          }
+        });
+      } else {
+        sortedCountries.sort((a, b) => {
+          if (sortOrder === "asc") {
+            return a.population - b.population;
+          } else {
+            return b.population - a.population;
+          }
+        });
+      }
+      return {
+        ...state,
+        country: { ...state.country, countries: sortedCountries },
+      };
+    }
 
     case ERROR:
       return {

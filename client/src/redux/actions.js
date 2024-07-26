@@ -10,6 +10,7 @@ import {
   SEARCH,
   CLEAR_FILTER,
   ERROR,
+  SORT,
 } from "./action-types";
 
 const URL = "http://localhost:3001";
@@ -93,5 +94,12 @@ export const search = (name) => {
 export const clearData = () => {
   return {
     type: CLEAR_FILTER,
+  };
+};
+
+export const sortData = (sortBy, sortOrder) => {
+  return {
+    type: SORT,
+    payload: { sortBy: sortBy, sortOrder: sortOrder },
   };
 };
