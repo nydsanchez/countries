@@ -13,7 +13,7 @@ function ModalGralInfo({ onClose }) {
           X
         </button>
       </div>
-      <div className={styles.modal}>
+      <div className={styles.modal_gral_info}>
         <p>
           Subregion: <span>{detailCountry.subregion} </span>
         </p>
