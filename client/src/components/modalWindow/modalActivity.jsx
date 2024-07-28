@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   applyFilter,
@@ -20,10 +20,11 @@ function ModalActivity({ onClose }) {
   }, [dispatch]);
 
   const handleActivityChange = (e) => {
-    const { value } = e.target;
-    selectedActivities.includes(value)
-      ? dispatch(resetFilter("activity", value))
-      : dispatch(applyFilter("activity", value));
+    const actId = Number(e.target.value);
+
+    selectedActivities.includes(actId)
+      ? dispatch(resetFilter("activity", actId))
+      : dispatch(applyFilter("activity", actId));
   };
 
   return (

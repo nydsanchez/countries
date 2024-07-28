@@ -158,22 +158,24 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
       if (newFilters.activity.length > 0) {
-        filteredCountries = filteredCountries.filter((country) =>
-          newFilters.activity.every((activity) =>
-            country.activities.includes(activity)
-          )
+        filteredCountries = filteredCountries.filter(
+          (country) =>
+            country.Activities &&
+            newFilters.activity.every((activity) =>
+              country.Activities.some((act) => act.id === activity)
+            )
         );
       }
 
       return {
         ...state,
+        country: { ...state.country, countries: filteredCountries },
         filteredCountries,
         filters: newFilters,
       };
     }
     case RESET_FILTER: {
       const { filterType, filterValue } = payload;
-      console.log("este es el filter ");
       let newFilters = { ...state.filters };
 
       if (filterType === "continent") {
@@ -195,10 +197,12 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
       if (newFilters.activity.length > 0) {
-        filteredCountries = filteredCountries.filter((country) =>
-          newFilters.activity.every((activity) =>
-            country.Activities.id.includes(activity)
-          )
+        filteredCountries = filteredCountries.filter(
+          (country) =>
+            country.Activities &&
+            newFilters.activity.every((activity) =>
+              country.Activities.some((act) => act.id === activity)
+            )
         );
       }
 
