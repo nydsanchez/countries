@@ -11,13 +11,11 @@ import styles from "./form.module.css";
 function ActivityForm({ onClose }) {
   const dispatch = useDispatch();
 
-  // Estados globales de Redux
   const selectedCountries = useSelector(
     (state) => state.country.selectedCountries
   );
   const ERROR = useSelector((state) => state.error);
 
-  // State local del componente
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",

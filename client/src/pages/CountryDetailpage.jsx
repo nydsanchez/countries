@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadCountry } from "../redux/actions";
+
 import Detail from "../components/countrydetail/CountryDetail";
 import GeneralInformation from "../components/countrydetail/GeneralInformation";
 import styles from "../styles/CountryDetail.module.css";

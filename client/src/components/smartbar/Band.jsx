@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styles from "./Smart.module.css";
 
 function Band({ children }) {
@@ -7,5 +8,7 @@ function Band({ children }) {
     </div>
   );
 }
-
+Band.propTypes = {
+  children: propTypes.node.isRequired,
+};
 export default Band;

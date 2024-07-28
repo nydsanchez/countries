@@ -1,4 +1,4 @@
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
 import styles from "../../styles/CountryDetail.module.css";
@@ -70,6 +70,7 @@ function TouristActivities({ country }) {
     <div className={styles.actCountries}>
       <header>
         <h2>{country.name}</h2>
+
         <button className={styles.btnMenu} onClick={handleToggleFilter}>
           <img src={menu} alt="menu" role="menu" />
         </button>
@@ -89,5 +90,9 @@ function TouristActivities({ country }) {
     </div>
   );
 }
+
+TouristActivities.propTypes = {
+  country: PropTypes.array.isRequired,
+};
 
 export default TouristActivities;

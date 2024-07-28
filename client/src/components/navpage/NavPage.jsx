@@ -12,7 +12,7 @@ function PageNav() {
   const handleClick = (e) => {
     e.preventDefault(); // Evita la navegación por defecto
     dispatch(clearData());
-    navigate("/home");
+    navigate("/inicio");
   };
 
   return (
@@ -20,13 +20,13 @@ function PageNav() {
       <Logo onClick={handleClick} />
       <ul>
         <li>
-          <NavLink to="/home">Inicio</NavLink>
+          <NavLink to="/inicio">Inicio</NavLink>
         </li>
         <li>
-          <NavLink to="/activity">Activitidad</NavLink>
+          <NavLink to="/actividad">Activitidad</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Acerca de</NavLink>
+          <NavLink to="/acerca">Acerca de</NavLink>
         </li>
 
         <li>

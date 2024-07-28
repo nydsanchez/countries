@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import {
   applyFilter,
@@ -59,4 +60,7 @@ function ModalActivity({ onClose }) {
   );
 }
 
+ModalActivity.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 export default ModalActivity;

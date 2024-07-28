@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-
+import propTypes from "prop-types";
 import { FaCompassDrafting, FaPeopleGroup } from "react-icons/fa6";
 import styles from "./modal.module.css";
 
@@ -44,5 +44,8 @@ function ModalGralInfo({ onClose }) {
     </div>
   );
 }
+ModalGralInfo.propTypes = {
+  onClose: propTypes.func.isRequired,
+};
 
 export default ModalGralInfo;

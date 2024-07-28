@@ -1,4 +1,4 @@
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import Logo from "../logo/Logo";
 import styles from "./CountryDetailComponent.module.css";
@@ -16,8 +16,8 @@ function CountryDetail({ country }) {
   );
 }
 
-// CountryDetail.propTypes = {
-//   country: PropTypes.array.isRequired,
-// };
+CountryDetail.propTypes = {
+  country: PropTypes.array.isRequired,
+};
 
 export default CountryDetail;

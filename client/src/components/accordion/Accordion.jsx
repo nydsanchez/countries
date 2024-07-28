@@ -1,6 +1,6 @@
 import AccordionItem from "./AccordionItem";
 import ico from "../../utils/ico";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./accordion.module.css";
 
@@ -34,9 +34,9 @@ function Accordion({ country, title }) {
   );
 }
 
-// Accordion.propTypes = {
-//   country: PropTypes.obj.isRequired,
-//   title: PropTypes.string.isRequired,
-// };
+Accordion.propTypes = {
+  country: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Accordion;

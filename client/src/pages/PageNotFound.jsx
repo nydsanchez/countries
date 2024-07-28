@@ -31,7 +31,7 @@ function PageNotFound() {
           Ups, parece que estás perdido en el espacio
         </p>
 
-        <NavLink to="/home" className={styles.ctaLink}>
+        <NavLink to="/inicio" className={styles.ctaLink}>
           <BsRocket /> INICIO
         </NavLink>
       </main>

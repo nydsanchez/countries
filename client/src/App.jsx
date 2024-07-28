@@ -11,10 +11,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Landingpage />} />
-      <Route path="/home" element={<Homepage />} />
+      <Route path="/inicio" element={<Homepage />} />
       <Route path="/country/:id" element={<CountryDetailpage />} />
-      <Route path="/activity" element={<Activitypage />} />
-      <Route path="/about" element={<Aboutpage />} />
+      <Route path="/actividad" element={<Activitypage />} />
+      <Route path="/acerca" element={<Aboutpage />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>

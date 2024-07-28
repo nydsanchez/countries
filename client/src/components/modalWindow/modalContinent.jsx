@@ -1,4 +1,5 @@
 import { useState } from "react";
+import propTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { applyFilter, resetFilter } from "../../redux/actions";
 import { continent } from "../../utils/continent";
@@ -56,5 +57,8 @@ function ModalContinent({ onClose }) {
     </div>
   );
 }
+ModalContinent.propTypes = {
+  onClose: propTypes.func.isRequired,
+};
 
 export default ModalContinent;

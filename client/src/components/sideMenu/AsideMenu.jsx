@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { NavLink, useNavigate } from "react-router-dom";
 import { clearData } from "../../redux/actions";
 import { useDispatch } from "react-redux";
@@ -10,7 +11,7 @@ function AsideMenu({ onClose }) {
   const handleClick = (e) => {
     e.preventDefault(); // Evita la navegación por defecto
     dispatch(clearData());
-    navigate("/home");
+    navigate("/inicio");
   };
 
   return (
@@ -20,28 +21,30 @@ function AsideMenu({ onClose }) {
       </button>
       <ul className={styles.nav_menu}>
         <li>
-          <a href="/home" onClick={handleClick}>
+          <a href="/inicio" onClick={handleClick}>
             Inicio
           </a>
         </li>
         <li>
-          <NavLink to="/activity">Actividades</NavLink>
+          <NavLink to="/actividad">Actividades</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Acerca de</NavLink>
+          <NavLink to="/acerca">Acerca de</NavLink>
         </li>
         <li>
-          <NavLink to="/home">Atras</NavLink>
+          <NavLink to="/inicio">Atras</NavLink>
         </li>
 
         <li>
           <NavLink to="/" className={styles.ctaLink}>
-            Exit
+            Salir
           </NavLink>
         </li>
       </ul>
     </nav>
   );
 }
-
+AsideMenu.propTypes = {
+  onClose: propTypes.func.isRequired,
+};
 export default AsideMenu;
