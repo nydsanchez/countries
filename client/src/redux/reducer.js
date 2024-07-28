@@ -107,7 +107,12 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case SORT: {
       const { sortBy, sortOrder } = payload;
-      let sortedCountries = [...state.country.countries];
+
+      let sortedCountries =
+        state.filteredCountries && state.filteredCountries.length > 0
+          ? [...state.filteredCountries]
+          : [...state.country.countries];
+
       if (sortBy === "country") {
         sortedCountries.sort((a, b) => {
           if (sortOrder === "asc") {
@@ -128,6 +133,10 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         country: { ...state.country, countries: sortedCountries },
+        filteredCountries:
+          state.filteredCountries && state.filteredCountries.length > 0
+            ? sortedCountries
+            : [],
       };
     }
 
