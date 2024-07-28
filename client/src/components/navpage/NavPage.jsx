@@ -20,18 +20,18 @@ function PageNav() {
       <Logo onClick={handleClick} />
       <ul>
         <li>
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/home">Inicio</NavLink>
         </li>
         <li>
-          <NavLink to="/activity">Activity</NavLink>
+          <NavLink to="/activity">Activitidad</NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">Acerca de</NavLink>
         </li>
 
         <li>
           <NavLink to="/" className={styles.ctaLink}>
-            Exit
+            Salir
           </NavLink>
         </li>
       </ul>

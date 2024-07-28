@@ -15,6 +15,7 @@ function App() {
       <Route path="/country/:id" element={<CountryDetailpage />} />
       <Route path="/activity" element={<Activitypage />} />
       <Route path="/about" element={<Aboutpage />} />
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

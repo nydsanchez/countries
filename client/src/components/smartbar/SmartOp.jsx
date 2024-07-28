@@ -2,9 +2,8 @@ import { useLocation } from "react-router-dom";
 
 import Band from "./Band";
 import Search from "../search/Search";
-import Filter from "../filter/Filter";
 import Sort from "../sort/Sort";
-
+import Filters from "./Filters";
 import styles from "./Smart.module.css";
 
 function SmartOp() {
@@ -17,7 +16,7 @@ function SmartOp() {
 
       <div className={styles.options}>
         <Search />
-        <Filter />
+        <Filters />
         <Sort />
       </div>
     </div>
