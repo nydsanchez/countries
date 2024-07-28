@@ -1,0 +1,12 @@
+.prueba {
+  display: flex;
+  gap: 2rem;
+}
+
+.boxButton {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+  cursor: pointer;
+}

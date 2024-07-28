@@ -1,0 +1,58 @@
+/* .modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(36, 42, 46, 70%);
+} */
+
+/*VENTANA MODAL COUNTRY*/
+.modal {
+  background: var(--color-modal--0);
+  /* background: var(--color-dark--0); */
+  width: 100vw;
+  height: 8rem;
+  position: fixed;
+  top: 15.9rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+.closeButton {
+  background: var(--color-modal--0);
+  position: absolute;
+  top: 23.8rem;
+  left: 50%;
+  width: 5rem;
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: all 3ms;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+.img_filter {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.label__filter {
+  width: auto;
+}
+
+.input__filter {
+  width: 2rem;
+}
