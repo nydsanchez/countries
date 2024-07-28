@@ -11,5 +11,7 @@ export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const SEARCH = "SEARCH";
 export const SORT = "SORT";
 export const APPLY_FILTER = "APPLY_FILTER";
-export const CLEAR_FILTER = "CLEAR_FILTER";
+export const RESET_FILTER = "RESET_FILTER";
+
+export const CLEAR_DATA = "CLEAR_DATA";
 export const ERROR = "ERROR";

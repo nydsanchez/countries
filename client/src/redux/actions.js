@@ -8,9 +8,11 @@ import {
   SELECTED_COUNTRIES,
   DESELECTED_VALUE,
   SEARCH,
-  CLEAR_FILTER,
+  CLEAR_DATA,
   ERROR,
   SORT,
+  APPLY_FILTER,
+  RESET_FILTER,
 } from "./action-types";
 
 const URL = "http://localhost:3001";
@@ -93,7 +95,7 @@ export const search = (name) => {
 
 export const clearData = () => {
   return {
-    type: CLEAR_FILTER,
+    type: CLEAR_DATA,
   };
 };
 
@@ -103,3 +105,15 @@ export const sortData = (sortBy, sortOrder) => {
     payload: { sortBy: sortBy, sortOrder: sortOrder },
   };
 };
+
+export const applyFilter = (filterType, filterValue) => {
+  return {
+    type: APPLY_FILTER,
+    payload: { filterType: filterType, filterValue: filterValue },
+  };
+};
+
+export const resetFilter = (filterType, filterValue) => ({
+  type: RESET_FILTER,
+  payload: { filterType: filterType, filterValue: filterValue },
+});

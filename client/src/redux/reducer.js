@@ -8,8 +8,10 @@ import {
   DESELECTED_VALUE,
   SEARCH,
   ERROR,
-  CLEAR_FILTER,
+  CLEAR_DATA,
   SORT,
+  APPLY_FILTER,
+  RESET_FILTER,
 } from "./action-types";
 const initialState = {
   country: {
@@ -23,7 +25,7 @@ const initialState = {
   search: [],
   filters: {
     continent: "",
-    activity: "",
+    activity: [],
   },
   sortBy: {
     key: "",
@@ -129,13 +131,91 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     }
 
+    case APPLY_FILTER: {
+      const { filterType, filterValue } = payload;
+      let newFilters = { ...state.filters };
+
+      if (filterType === "continent") {
+        newFilters.continent = filterValue;
+      } else if (filterType === "activity") {
+        if (newFilters.activity.includes(filterValue)) {
+          newFilters.activity = newFilters.activity.filter(
+            (activity) => activity !== filterValue
+          );
+        } else {
+          newFilters.activity.push(filterValue);
+        }
+      }
+
+      let filteredCountries = state.country.countries;
+
+      if (newFilters.continent) {
+        filteredCountries = filteredCountries.filter(
+          (country) =>
+            newFilters.continent === "All" ||
+            country.continent.includes(newFilters.continent)
+        );
+      }
+
+      if (newFilters.activity.length > 0) {
+        filteredCountries = filteredCountries.filter((country) =>
+          newFilters.activity.every((activity) =>
+            country.activities.includes(activity)
+          )
+        );
+      }
+
+      return {
+        ...state,
+        filteredCountries,
+        filters: newFilters,
+      };
+    }
+    case RESET_FILTER: {
+      const { filterType, filterValue } = payload;
+      console.log("este es el filter ");
+      let newFilters = { ...state.filters };
+
+      if (filterType === "continent") {
+        newFilters.continent = "";
+      } else if (filterType === "activity") {
+        newFilters.activity = newFilters.activity.filter(
+          (activity) => activity !== filterValue
+        );
+      }
+
+      let filteredCountries = state.country.countries;
+
+      if (newFilters.continent) {
+        filteredCountries = filteredCountries.filter(
+          (country) =>
+            newFilters.continent === "All" ||
+            country.continent.includes(newFilters.continent)
+        );
+      }
+
+      if (newFilters.activity.length > 0) {
+        filteredCountries = filteredCountries.filter((country) =>
+          newFilters.activity.every((activity) =>
+            country.Activities.id.includes(activity)
+          )
+        );
+      }
+
+      return {
+        ...state,
+        filteredCountries,
+        filters: newFilters,
+      };
+    }
+
     case ERROR:
       return {
         ...state,
         error: payload,
       };
 
-    case CLEAR_FILTER:
+    case CLEAR_DATA:
       return {
         ...state,
         country: {
