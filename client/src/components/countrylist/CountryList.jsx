@@ -10,7 +10,7 @@ import styles from "./CountryList.module.css";
 function CountryList() {
   const dispatch = useDispatch();
 
-  const countries = useSelector((state) => state.country.countriesBK);
+  const countries = useSelector((state) => state.country.countries);
   const searchCountries = useSelector((state) => state.search);
   const filterCountries = useSelector((state) => state.filteredCountries);
 
@@ -41,7 +41,7 @@ function CountryList() {
     <>
       <Pagination
         currentPage={currentPage}
-        totalPages={Math.ceil(countries.length / recordsPerPage)}
+        totalPages={Math.ceil(data.length / recordsPerPage)}
         onPageChange={setCurrentPage}
       />
       <ul className={styles.countryList}>

@@ -2,12 +2,6 @@ import PropTypes from "prop-types";
 import styles from "./pagination.module.css";
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  Pagination.propTypes = {
-    currentPage: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
-  };
-
   const pageNumbers = [];
 
   for (let i = 1; i <= totalPages; i++) {
@@ -31,5 +25,9 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     </nav>
   );
 }
-
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 export default Pagination;
