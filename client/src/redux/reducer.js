@@ -183,10 +183,11 @@ const reducer = (state = initialState, { type, payload }) => {
         filters: newFilters,
       };
     }
+
     case RESET_FILTER: {
       const { filterType, filterValue } = payload;
       let newFilters = { ...state.filters };
-
+      console.log("estoy en el reducer y el value es: ", filterValue);
       if (filterType === "continent") {
         newFilters.continent = "";
       } else if (filterType === "activity") {
@@ -217,9 +218,26 @@ const reducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        filteredCountries,
+        country: {
+          ...state.country,
+          regcountry: [],
+          selectedCountries: [],
+          countries: state.country.countriesBK,
+        },
+        filteredCountries: [],
         filters: newFilters,
       };
+
+      /*
+       return {
+        ...state,
+        
+        filteredCountries: ,
+        search: [],
+        error: null,
+        filters: { ...state.filters, continent: "", activity: [] },
+      };
+      */
     }
 
     case ERROR:
@@ -235,10 +253,12 @@ const reducer = (state = initialState, { type, payload }) => {
           ...state.country,
           regcountry: [],
           selectedCountries: [],
+          countries: state.country.countriesBK,
         },
         filteredCountries: [],
         search: [],
         error: null,
+        filters: { ...state.filters, continent: "", activity: [] },
       };
 
     default:

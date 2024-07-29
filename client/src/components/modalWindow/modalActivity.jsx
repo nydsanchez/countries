@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   applyFilter,
@@ -14,15 +14,20 @@ function ModalActivity({ onClose }) {
 
   const activities = useSelector((state) => state.activity);
   const selectedActivities = useSelector((state) => state.filters.activity);
+  const [localActivity, setLocalActivity] = useState(selectedActivities);
 
   useEffect(() => {
     dispatch(retrieveActivities());
   }, [dispatch]);
 
+  useEffect(() => {
+    setLocalActivity(selectedActivities);
+  }, [selectedActivities]);
+
   const handleActivityChange = (e) => {
     const actId = Number(e.target.value);
-
-    selectedActivities.includes(actId)
+    console.log("estoy en el handle activity y el value es: ", actId);
+    localActivity.includes(actId)
       ? dispatch(resetFilter("activity", actId))
       : dispatch(applyFilter("activity", actId));
   };
@@ -45,7 +50,7 @@ function ModalActivity({ onClose }) {
                     name="activity"
                     value={activity.id}
                     onChange={handleActivityChange}
-                    checked={selectedActivities.includes(activity.id)}
+                    checked={localActivity.includes(activity.id)}
                     className={styles.input__filter}
                   />
                   <label htmlFor={activity.id} className={styles.label__filter}>

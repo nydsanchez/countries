@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import propTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { applyFilter, resetFilter } from "../../redux/actions";
@@ -12,10 +12,15 @@ function ModalContinent({ onClose }) {
   const [localContinent, setLocalContinent] = useState(selectedContinent);
 
   const resetContinent = "";
+
+  useEffect(() => {
+    setLocalContinent(selectedContinent);
+  }, [selectedContinent]);
+
   const handleContinentChange = (e) => {
     const { value } = e.target;
 
-    if (localContinent === value) {
+    if (localContinent === value || value === "All") {
       setLocalContinent("");
       dispatch(resetFilter("continent", resetContinent));
     } else {
