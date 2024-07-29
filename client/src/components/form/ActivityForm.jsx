@@ -39,7 +39,7 @@ function ActivityForm({ onClose }) {
   // Efecto para mostrar mensajes de éxito o error después de enviar el formulario
   useEffect(() => {
     if (isSubmitted) {
-      alert(ERROR ? `Error: ${ERROR}` : "Activity registered successfully!");
+      alert(ERROR ? `Error: ${ERROR}` : "Actividad registrada exitosamente!");
       setIsSubmitted(false);
     }
   }, [ERROR, isSubmitted]);
@@ -201,10 +201,10 @@ function ActivityForm({ onClose }) {
         </div>
         <div className={styles.Buttons}>
           <button type="submit" className={styles.ButtonsMain}>
-            Save
+            Guardar
           </button>
           <button className={styles.ButtonsSec} onClick={handleClean}>
-            Clean
+            Borrar
           </button>
         </div>
       </form>

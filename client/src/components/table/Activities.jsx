@@ -17,7 +17,7 @@ function Activity({ onClose }) {
 
   const handleEdit = (id) => {
     console.log("Edit item at index:", id);
-    // dispatch(editActivities(id));
+    window.alert("Esta funcionalidad esta en construcción");
   };
 
   const handleDelete = (id) => {

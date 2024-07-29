@@ -28,11 +28,11 @@
   color: var(--color-brand--1);
 }
 .table tbody tr:nth-child(odd) {
-  background: var(--color-brand--1);
+  background: var(--color-light--2);
   color: var(--color-dark--1);
 }
 .table tbody tr:nth-child(even) {
-  background: var(--color-brand--2);
+  background: var(--color-light--3);
   color: var(--color-dark--1);
 }
 

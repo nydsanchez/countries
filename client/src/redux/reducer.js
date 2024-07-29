@@ -196,7 +196,7 @@ const reducer = (state = initialState, { type, payload }) => {
         );
       }
 
-      let filteredCountries = state.country.countries;
+      let filteredCountries = state.country.countriesBK;
 
       if (newFilters.continent) {
         filteredCountries = filteredCountries.filter(
@@ -224,7 +224,7 @@ const reducer = (state = initialState, { type, payload }) => {
           selectedCountries: [],
           countries: state.country.countriesBK,
         },
-        filteredCountries: [],
+        filteredCountries,
         filters: newFilters,
       };
 
