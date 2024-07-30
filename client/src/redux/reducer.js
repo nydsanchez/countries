@@ -187,7 +187,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case RESET_FILTER: {
       const { filterType, filterValue } = payload;
       let newFilters = { ...state.filters };
-      console.log("estoy en el reducer y el value es: ", filterValue);
+      //console.log("estoy en el reducer y el value es: ", filterValue);
       if (filterType === "continent") {
         newFilters.continent = "";
       } else if (filterType === "activity") {

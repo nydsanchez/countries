@@ -71,7 +71,7 @@ function Activity({ onClose }) {
     content = (
       <tbody>
         <tr key="256">
-          <td colSpan="5">There are not activities registered</td>
+          <td colSpan="5">No hay actividades registradas</td>
         </tr>
       </tbody>
     );
@@ -92,11 +92,11 @@ function Activity({ onClose }) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th scope="col">Activity</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Difficulty</th>
-              <th scope="col">Season</th>
-              <th scope="col">Actions</th>
+              <th scope="col">Actividad</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Dificultad</th>
+              <th scope="col">Temporada</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           {content}

@@ -27,6 +27,7 @@ function ModalContinent({ onClose }) {
       setLocalContinent(value);
       dispatch(applyFilter("continent", value));
     }
+    
   };
 
   return (

@@ -26,7 +26,6 @@ function ActivityForm({ onClose }) {
   });
   const [errors, setErrors] = useState({});
 
-  // Efecto para actualizar formData y errores cuando cambian los países seleccionados
   useEffect(() => {
     setFormData((prevState) => ({
       ...prevState,
@@ -36,7 +35,6 @@ function ActivityForm({ onClose }) {
     setErrors(validation({ ...formData, countries: selectedCountries }));
   }, [selectedCountries]);
 
-  // Efecto para mostrar mensajes de éxito o error después de enviar el formulario
   useEffect(() => {
     if (isSubmitted) {
       alert(ERROR ? `Error: ${ERROR}` : "Actividad registrada exitosamente!");
@@ -44,14 +42,12 @@ function ActivityForm({ onClose }) {
     }
   }, [ERROR, isSubmitted]);
 
-  // Función para manejar cambios en los inputs del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors(validation({ ...formData, [name]: value }));
   };
 
-  // Función para manejar cambios en las estaciones seleccionadas
   const handleSeasonChange = (e) => {
     const { id, checked } = e.target;
     const newSeason = checked

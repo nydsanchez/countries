@@ -58,11 +58,11 @@ function TouristActivities({ country }) {
     setWinterAct(winterActivities);
   };
 
-  const handleToggleFilter = () => {
+  const handleOpenMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseMenu = () => {
     setIsOpen(false);
   };
 
@@ -71,12 +71,12 @@ function TouristActivities({ country }) {
       <header>
         <h2>{country.name}</h2>
 
-        <button className={styles.btnMenu} onClick={handleToggleFilter}>
+        <button className={styles.btnMenu} onClick={handleOpenMenu}>
           <img src={menu} alt="menu" role="menu" />
         </button>
         {isOpen && (
           <div>
-            <AsideMenu onClose={handleCloseModal} />
+            <AsideMenu onClose={handleCloseMenu} />
           </div>
         )}
       </header>

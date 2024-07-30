@@ -23,7 +23,7 @@ const dataComplete = async (req, res, next) => {
 const getAllActivities = async (req, res) => {
   try {
     const count = await Activities.count();
-    console.log(count);
+    //console.log(count);
     if (count > 0) {
       const activities = await Activities.findAll();
       return res.status(200).json(activities);

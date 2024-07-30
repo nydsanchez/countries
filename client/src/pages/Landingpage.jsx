@@ -20,7 +20,7 @@ function Landingpage() {
           <br />
           CountryExplorer es la plataforma perfecta para conectarte y explorar
         </h2>
-        <Link to="/home" className="cta">
+        <Link to="/inicio" className="cta">
           Empieza ahora!
         </Link>
       </section>

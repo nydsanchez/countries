@@ -25,7 +25,7 @@ function Sort() {
   return (
     <div className={styles.order}>
       <Btn onClick={handleNameSort}>
-        Paises {nameSortOrder === "asc" ? "⬆" : "⬇"}
+        Países {nameSortOrder === "asc" ? "⬆" : "⬇"}
       </Btn>
       <Btn onClick={handlePopulationSort}>
         Poblacion {populationSortOrder === "asc" ? "⬆" : "⬇"}

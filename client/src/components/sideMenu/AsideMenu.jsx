@@ -9,7 +9,7 @@ function AsideMenu({ onClose }) {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    e.preventDefault(); // Evita la navegación por defecto
+    e.preventDefault();
     dispatch(clearData());
     navigate("/inicio");
   };
