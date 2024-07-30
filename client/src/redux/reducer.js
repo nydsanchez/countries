@@ -227,17 +227,6 @@ const reducer = (state = initialState, { type, payload }) => {
         filteredCountries,
         filters: newFilters,
       };
-
-      /*
-       return {
-        ...state,
-        
-        filteredCountries: ,
-        search: [],
-        error: null,
-        filters: { ...state.filters, continent: "", activity: [] },
-      };
-      */
     }
 
     case ERROR:
